@@ -1,0 +1,244 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  color: #5a5a5a;
+  font-family: 'PT Sans', sans-serif;
+}
+header{
+	height:65px;
+	color:#000;
+	background: #FFF;
+}
+.fixed-top{
+	background: #FFF;
+}
+a.navbar-brand, .fa-bars:before{ color: #000 !important; }
+.section-head{
+	width:100%;
+	background:url(../images/heading.png) repeat-x;
+	margin:40px 20% 0px;
+	padding:0 5% 40px 5%;
+}
+.section-head h1{
+  	font-family: 'Montserrat', sans-serif;
+	font-size:30px;
+	font-weight:bold;
+	background:#fff;
+	text-align:center;
+}
+.section-head h3{
+  	font-family:  'PT Sans', sans-serif;
+	font-size:15px;
+	background:#fff;
+	text-align:center;
+}
+.btn-blue{
+	margin:0px 5px;
+	padding:5px 24px;
+	background:#4DD2FF;
+	box-shadow:rgba(0,0,0,.5) 0px 2px 2px;
+	font-size:13px;
+	color:#FFF;
+}
+.btn-yellow{
+	margin:0px 5px;
+	padding:5px 24px;
+	background:#FFBF00;
+	box-shadow:rgba(0,0,0,.5) 0px 2px 2px;
+	font-size:13px;
+	color:#FFF;
+}
+.section-bottom{
+	width:100%;
+	margin:30px 0px;
+	text-align:center;
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.subheader{
+	height:200px;
+	padding-top:50px;
+	background:url(../images/subheader.png) no-repeat;
+	background-size:cover;
+}
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 4rem;
+  z-index: 10;
+}
+.carousel-caption h1, .subheader h1{
+	font-size:60px;
+	font-weight:bold;
+	color:#FFF;
+	text-shadow:#000 0px 3px 3px;
+  	font-family: 'Montserrat', sans-serif;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 600px;
+  background-color: #777;
+}
+.carousel-item > img {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  min-width: 100%;
+  height: auto;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+	font-size:15px;
+  font-weight: bold;
+}
+.marketing .col-lg-4 p {
+	font-size:13px;
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 2rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+/* REGISTRY */
+.registry{
+	padding:10px;
+	border:#ccc solid 1px;
+	box-shadow:2px 2px 0px #ccc;
+	margin-top:20px;
+}
+.registry img{
+	width:100px;
+	height:100px;
+	border:#ccc solid 1px;
+	box-shadow:0px 2px 2px #ccc;
+}
+.registry .info{
+}
+.registry .info h3{
+	font-size:15px;
+	font-weight:bold;
+  	font-family: 'Montserrat', sans-serif;
+	color:#000;
+}
+.registry .info p.type{
+	font-size:13px;
+	font-weight:bold;
+	color:#4DD2FF;
+}
+.registry .info p.date{
+	font-size:12px;
+	color:#FFBF00;
+}
+.registry .action .btn{
+	margin-top:20%;
+	float:right;
+}
+
+.profile img{
+	width:100%;
+}
+.sidebar{
+	list-style:none;
+	padding:15px;
+	margin-top:8px;
+	border:#efefef solid 1px;
+}
+.custom-checkbox{
+	margin:10px 0px;
+	text-align:left;
+	margin-top:10px;
+}
+
+.product{
+	padding:8px;
+	border:#efefef solid 1px;
+}
+.product img{
+	width:100%;
+	height: 200px;
+}
+.product h3{
+	padding-top:10px;
+	font-size:16px;
+	font-weight:bold;
+  font-family: 'Montserrat', sans-serif;
+	color:#000;
+}
+.product p.price{
+	padding-top:10px;
+	font-size:15px;
+	font-weight:bold;
+  font-family: 'Montserrat', sans-serif;
+	color:#ffa016;
+	text-align: center;
+}
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 40em) {
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+@media screen and (max-width:767px) {
+	.carousel-caption h1{
+		font-size: 22px;
+	}
+	.section-head h1{
+  	font-family: 'Montserrat', sans-serif;
+		font-size:22px;
+		font-weight:bold;
+		background:#fff;
+		text-align:center;
+	}
+	.section-head h3{
+			font-family:  'PT Sans', sans-serif;
+		font-size:13px;
+		background:#fff;
+		text-align:center;
+	}
+	
+}
