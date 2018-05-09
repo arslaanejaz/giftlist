@@ -74,8 +74,9 @@
 
 
 <?php endif; endforeach; ?>
-      
+
 </div>
+          <?php if(isset($products)):?>
           <kbd class="pull-righthioctane_giftlist">Total Produts: <?php echo sizeof($products)?></kbd>
           <br />
           <br />
@@ -102,6 +103,8 @@
 
 
           </div>
+          <?php endif?>
+
 
 </div>
 

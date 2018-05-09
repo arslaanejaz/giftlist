@@ -154,7 +154,7 @@ echo 'OK '.$response->getStatus();
 
             $this->scrap_pages($id, $registry_id, $registry_type);
 
-            //redirect('registry/show/'.$id);
+            redirect('registry/show/'.$id);
 
         }
     }

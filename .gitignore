@@ -13,3 +13,4 @@ yarn-error.log
 .env
 error_log
 composer.lock
+/application/config/*
