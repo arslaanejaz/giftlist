@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://tekexpertz.net/dev/gyftlist2/';
- $config['base_url'] = 'http://localhost:8080/gyftlist2/';
+ $config['base_url'] = 'https://www.gyftlists.com/';
 
 /*
 |--------------------------------------------------------------------------

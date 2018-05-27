@@ -56,10 +56,21 @@
               <div class="form-group"> 
                 <label class="col-sm-2 control-label">Choose Image</label> 
                 <div class="col-sm-10"> 
-                  <input type="file"  id="field-file"  name="product_image" class="form-control">
+                  <input type="file"  id="field-file"  name="product_image" class="form-control" value="<?php if(!empty($products)){
+                    echo $products->product_image;
+                    } ?>">
                 </div> 
               </div>
               
+              <div class="line-dashed"></div>
+               <div class="form-group">
+                <label class="col-sm-2 control-label">Retailer</label>
+                                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="retailer" placeholder="Retailer" value="<?php if(!empty($products)){
+                    echo $products->retailer;
+                    } ?>" > 
+                                </div>
+                             </div>
              
               <div class="line-dashed"></div>
               <div class="form-group"> 

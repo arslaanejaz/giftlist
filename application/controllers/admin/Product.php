@@ -46,6 +46,7 @@ class Product extends CI_Controller{
         'product_price'=>$this->input->post('price'),
         'product_detail'=>$this->input->post('product_detail'),
         'product_category'=>$this->input->post('product_category'),
+        'retailer'=>$this->input->post('retailer'),
         'product_image'=> $picture
 
 
@@ -105,6 +106,7 @@ public function update_product()
         'product_price'=>$this->input->post('price'),
         'product_detail'=>$this->input->post('product_detail'),
         'product_category'=>$this->input->post('product_category'),
+        'retailer'=>$this->input->post('retailer'),
         'product_image'=> $picture
 
 

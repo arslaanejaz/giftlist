@@ -61,7 +61,9 @@
             </li>
           </ul>
           <?php if($this->session->userdata('user_id')) { ?>
-            <a class="btn btn-blue" href="<?php echo site_url('registry'); ?>">Account</a>
+            <a class="btn btn-blue" href="<?php echo site_url('registry'); ?>">User Dashboard</a>
+            <a href="<?php echo base_url() ?>index.php/user/" class="btn btn-blue">Profile</a>
+            <a href="<?php echo base_url() ?>index.php/registry/myregistries" class="btn btn-blue">My Registries</a>
             <a class="btn btn-yellow" href="<?php echo site_url('user/logout'); ?>">Sign Out</a>
             <?php } else { ?>
             <a class="btn btn-blue" href="<?php echo site_url('user/register'); ?>">Sign up</a>

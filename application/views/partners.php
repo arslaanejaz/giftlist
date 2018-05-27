@@ -20,10 +20,7 @@
                 <p>Our partners description text</p>
               </div>
         
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Partner Name" required autofocus>
-                <label for="inputEmail">  </label>
-              </div>
+              
             </form>
           </div>
         </div><!-- /.row -->
@@ -35,10 +32,11 @@
 
         <?php foreach ($partners as $key => $value): ?>
 
-          <div class="col-lg-4 product">
-          	<img class="center-block" src="<?php echo base_url().'assets/partners/'.$value->image; ?>" />
-            <h4><a href="<?php echo $value->url; ?>" target="_blank"><?php echo $value->title; ?></a></h4>
-            <p class="price">$<?php echo $value->description; ?></p>
+          <div class="col-lg-3 product">
+            <a href="<?php echo $value->url; ?>" target="_blank"><img class="center-block" src="<?php echo base_url().'assets/partners/'.$value->image; ?>" /></a>
+            <h4><?php echo $value->title; ?></h4>
+            <p class="retailer">$<?php echo $value->description; ?></p>
+            <p class="text-center"><a href="<?php echo $value->url; ?>" class="btn btn-blue" target="_blank">Shop Here</a></p>
           </div>
 
         <?php endforeach ?>

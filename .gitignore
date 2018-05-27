@@ -14,3 +14,4 @@ yarn-error.log
 error_log
 composer.lock
 /application/config/*
+/dump

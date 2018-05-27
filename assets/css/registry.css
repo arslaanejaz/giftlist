@@ -88,12 +88,12 @@ span.cc{ color:#6d84b4 }
 
 .modal-header {
   padding: 20px 40px;
-  background: #546E7A;
-  color: #ffffff;
+  background: #efefef;
+  color: #333333;
 }
 
 .modal-body {
-  background: #ECEFF1;
+  background: #FFFFFF;
   padding: 60px 40px;
 }
 

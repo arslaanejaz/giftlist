@@ -1,7 +1,7 @@
 <div class="container-fluid">
       	<div class="row">
         	<div class="col-lg-12 subheader">
-            	<h1 class="text-center">Shop Registry</h1>
+            	<h1 class="text-center">Shop Gyftlist</h1>
             </div>
         </div>
       </div>
@@ -49,9 +49,11 @@
 
         <?php foreach ($result as $key => $value): ?>
 
-          <div class="col-lg-4 product">
+          <div class="col-lg-3 product">
           	<img class="center-block" src="<?php echo base_url().'assets/product_images/'.$value->product_image; ?>" />
             <h4><?php echo $value->product_name; ?></h4>
+            <p class="retailer">By <?php echo $value->retailer; ?></p>
+            <p class="description"><?php echo $value->product_detail; ?></p>
             <p class="price">$<?php echo $value->product_price; ?></p>
           </div>
 

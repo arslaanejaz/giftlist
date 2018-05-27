@@ -15,7 +15,7 @@
               <div class="carousel-caption">
                 <h1><?php echo $value->slide_heading ?></h1>
                 <p><?php echo $value->link_one ?></p>
-                <p><a class="btn btn-lg btn-yellow" href="<?php echo site_url('welcome/find_registry') ?>" role="button">Find a Registry</a><a class="btn btn-lg btn-yellow" href="<?php echo site_url('user/register') ?>" role="button">Create Registry</a></p>
+                <p><a class="btn btn-lg btn-yellow" href="<?php echo site_url('welcome/find_registry') ?>" role="button">Find a Registry</a><a class="btn btn-lg btn-yellow" href="<?php if($this->session->userdata('user_id')) { echo site_url('registry'); } else { echo site_url('user/register'); } ?>" role="button">Create Registry</a></p>
               </div>
             </div>
           </div>
@@ -75,9 +75,9 @@
             <h2>Heading</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           </div><!-- /.col-lg-4 -->
-          <div class="section-bottom">
+          <!--<div class="section-bottom">
           	<a href="#" class="btn btn-yellow">View More</a>
-          </div>
+          </div>-->
         </div><!-- /.row -->
 
 
@@ -88,19 +88,19 @@
         <div class="row">
           <div class="section-head">
           	<h1>How It Works</h1>
-            <h3>Organize your gift giving &amp; receiving with these great features</h3>
+            <h2>Organize your gift giving &amp; receiving with these great features</h2>
           </div>
           <div class="col-lg-4">
-            <img class="rounded-circle" src="<?php echo base_url() ?>assets/images/create.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Create as many lists you like in one place</h2>
+            <img src="<?php echo base_url() ?>assets/images/plane.png" alt="Generic placeholder image" width="70" height="70">
+            <h4>Create as many lists you like in one place</h4>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <img class="rounded-circle" src="<?php echo base_url() ?>assets/images/additems.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Add items frm any website to your Gyft Hero list</h2>
+            <img src="<?php echo base_url() ?>assets/images/diamond.png" alt="Generic placeholder image" width="70" height="70">
+            <h4>Add items frm any website to your Gyft Hero list</h4>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <img class="rounded-circle" src="<?php echo base_url() ?>assets/images/share.png" alt="Generic placeholder image" width="140" height="140">
-            <h2>Share Your Lists</h2>
+            <img src="<?php echo base_url() ?>assets/images/flash.png" alt="Generic placeholder image" width="70" height="70">
+            <h4>Share Your Lists</h4>
           </div><!-- /.col-lg-4 -->
 		</div>
         <hr class="featurette-divider">

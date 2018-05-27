@@ -15,50 +15,62 @@
 
         <!-- Three columns of text below the carousel -->
         <div class="row">
-          <div class="col-lg-6 offset-3 mt-3">
+          <div class="col-lg-6 offset-3 mt-5">
               <div class="text-center mb-4">
-                <p>What will you like to do</p>
+                <h1>What will you like to do</h1>
               </div>
           </div>
-          <div class="col-lg-6 offset-3 mt-3">
-              <!-- Modal -->
+          <div class="col-lg-12 mt-3">
+              <!--  -->
               <div class="row">
-              <div class="col-md-4 text-center"><a href="#" class="modal-trigger btn btn-blue" data-modal="modal-name">Create a Registry!</a> </div>
-              <div class="col-md-4 text-center"><a href="<?php echo base_url() ?>index.php/user/" class="btn btn-yellow">Profile</a></div>
-              <div class="col-md-4 text-center"><a href="<?php echo base_url() ?>index.php/welcome/shop/" class="btn btn-blue" data-modal="modal-name">Shop Gift!</a></div> 
+              <div class="col-md-3 text-center">
+                <div class="user-dash-box">
+                  <span><i class="fa fa-shopping-bag"></i></span>
+                  <a href="<?php echo base_url() ?>index.php/welcome/shop/" data-modal="modal-name">Shop by Category</a>
+                </div>
               </div>
-              <!-- Trigger Modal. -->
+              <div class="col-md-3 text-center">
+                <div class="user-dash-box">
+                  <span><i class="fa fa-rocket"></i></span>
+                  <a href="#" class="modal-trigger" data-modal="modal-name">Create a Registry!</a> 
+                </div>                
+              </div>
+              <div class="col-md-3 text-center">
+                <div class="user-dash-box">
+                  <span><i class="fa fa-download"></i></span>
+                  <a href="#" class="modal-trigger" data-modal="modal-import">Import Registry!</a> 
+                </div>                
+              </div>
+              <div class="col-md-3 text-center">
+                <div class="user-dash-box">
+                  <span><i class="fa fa-wrench"></i></span>
+                  <a href="<?php echo base_url() ?>registry/install_importfromanywhere">Install Import Button</a> 
+                </div>                
+              </div> 
+              </div>
+              <!-- . -->
+              <hr class="featurette-divider">
+              <div class="row">
+              <div class="col-md-12">
+                <div class="import-registry-box">
+                  <h3>Importing products from Amazon <span>Fetching 40 products</span></h3>
+                  <div class="options">
+                    <a href="<?php echo base_url() ?>"><i class="fa fa-repeat"></i></a>
+                    <a href="<?php echo base_url() ?>"><i class="fa fa-pause"></i></a>
+                    <a href="<?php echo base_url() ?>"><i class="fa fa-play"></i></a>
+                  </div>
+                </div>
+              </div> 
+              </div>
           </div>
         </div>
-        <hr class="featurette-divider">
-        <!-- /END THE FEATURETTES -->
-        <div class="row">
-        <?php foreach ($result as $key => $value): ?>
-          
-        <?php if($this->session->userdata('user_id') == $value->fk_user_id): ?>
-          <div class="col-lg-8 offset-2 registry">
-          	<div class="row">
-            	<div class="col-lg-2"><img src="<?php echo base_url() ?>assets/registry/<?php echo $value->thumb ?>" /></div>
-                <div class="col-lg-7 info">
-                	  <h3><?php echo $value->description ?></h3>
-                    <p class="type"><?php echo $value->registry_type ?></p>
-                    <p class="date"><?php echo $value->registry_date ?></p>
-                    <p style="font-size:11px;">Share URL: <?php echo site_url().'/registry/'.$value->registry_url; ?></p>
-                </div>
-                <div class="col-lg-3 action">
-                	<a href="<?php echo site_url("registry/show/$value->registry_id") ?>" class="btn btn-blue">View</a>
-                </div>
-            </div>
-          </div>
 
-
-<?php endif; endforeach; ?>
       
 </div>
 
 </div>
 
-      </div>
+
 
 
         
@@ -120,7 +132,56 @@
     </div>
 
     
-    <button type="submit" style="margin-left: 24em;margin-top: 2em;">Submit</button>
+    <button type="submit" class="btn btn-yellow">Submit</button>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="modal-import">
+  <div class="modal-sandbox"></div>
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="close-modal">&#10006;</div> 
+      <h1 style="margin-right: 6em">Import Registry</h1>
+    </div>
+    <div class="modal-body">
+    <?= form_open("import") ?>
+    <?php if (form_error('registry_id') != null): ?>
+                        <div class="alert alert-danger " role="alert">
+                            <?= form_error('registry_id'); ?>
+                        </div>
+                    <?php endif; ?>
+      <div class="form-group">
+      <h5>Select Registry</h5>
+    <select  class="form-control" name="registry_id">
+    <?php foreach ($result as $key => $value): ?>  
+          <?php if($this->session->userdata('user_id') == $value->fk_user_id): ?>
+          <option value="<?php echo $value->registry_id ?>"><?php echo $value->description ?></option>
+          <?php endif; endforeach; ?>
+        </select> 
+      <span>You will need to first create registry to import products</span>
+      </div>
+
+      <div class="form-group">
+      <h5>Source</h5>
+    <select  class="form-control" name="source">
+          <option value="amazon">Amazon</option>
+        </select> 
+      <span>Where your registry already exists</span>
+      </div>
+
+      <div class="form-group">
+      <h5>Registry ID</h5>
+    <input type="text" class="form-control" placeholder="i.e 51ULB996O61W" id="registry_id" name="registry_id" /> 
+      <span>A valid id</span>
+      </div>
+
+
+    
+      <button class="btn btn-blue" type="submit" style="">Import</button>
     </form>
 
     </div>

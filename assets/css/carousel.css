@@ -28,7 +28,7 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 	background:#fff;
 	text-align:center;
 }
-.section-head h3{
+.section-head h2, .section-head h3{
   	font-family:  'PT Sans', sans-serif;
 	font-size:15px;
 	background:#fff;
@@ -50,6 +50,15 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 	font-size:13px;
 	color:#FFF;
 }
+.btn-install{
+	margin:10px;
+	padding:15px 35px;
+	background:#FFBF00;
+	font-size:16px;
+	color:#000;
+	cursor:e-resize;
+	border-radius:0px; 
+}
 .section-bottom{
 	width:100%;
 	margin:30px 0px;
@@ -70,7 +79,7 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  bottom: 4rem;
+  bottom: 9rem;
   z-index: 10;
 }
 .carousel-caption h1, .subheader h1{
@@ -80,7 +89,19 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 	text-shadow:#000 0px 3px 3px;
   	font-family: 'Montserrat', sans-serif;
 }
-
+/************************/
+.profile{
+	background:#efefef;
+	padding-bottom: 50px;
+}
+.profile img{
+	margin: 200px 0 0 0;
+	border:#fff solid 2px;
+}
+.profile h1{
+	width:90%;
+	margin: 250px 0 0 0;
+}
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 600px;
@@ -107,7 +128,7 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 	font-size:15px;
   font-weight: bold;
 }
-.marketing .col-lg-4 p {
+.marketing .col-lg-4 p, .marketing .col-lg-4 h4 {
 	font-size:13px;
   margin-right: .75rem;
   margin-left: .75rem;
@@ -182,16 +203,29 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 	padding:8px;
 	border:#efefef solid 1px;
 }
+.product.active{
+	opacity: 0.5;
+}
+.product.active::before{
+	position: absolute;
+	top:20px;
+	left: 10px;
+	content: "Purchased";
+	background: #FFBF00;
+	color: #000;
+	font-size: 11px;
+	padding: 3px 5px;
+}
 .product img{
 	width:100%;
 	height: 200px;
 }
-.product h3{
+.product h4{
 	padding-top:10px;
 	font-size:16px;
-	font-weight:bold;
   font-family: 'Montserrat', sans-serif;
 	color:#000;
+	text-align: center;
 }
 .product p.price{
 	padding-top:10px;
@@ -199,6 +233,20 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 	font-weight:bold;
   font-family: 'Montserrat', sans-serif;
 	color:#ffa016;
+	text-align: center;
+}
+.product p.retailer{
+	padding-top:5px;
+	font-size:12px;
+  font-family: 'Montserrat', sans-serif;
+	color:#ccc;
+	text-align: center;
+}
+.product p.description{
+	padding-top:5px;
+	font-size:12px;
+  font-family: 'Montserrat', sans-serif;
+	color:#666;
 	text-align: center;
 }
 /* RESPONSIVE CSS
@@ -235,10 +283,96 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 		text-align:center;
 	}
 	.section-head h3{
-			font-family:  'PT Sans', sans-serif;
+		font-family:  'PT Sans', sans-serif;
 		font-size:13px;
 		background:#fff;
 		text-align:center;
 	}
 	
 }
+
+.user-dash-box{
+	width: 100%;
+	margin: 10px;
+	padding: 10px 0 30px 0;
+	border:#ccc solid 1px;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+}
+.user-dash-box span{
+	width:70px;
+	height: 70px;
+	margin-top: 20px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 2px #ccc;
+	align-self: center;
+}
+.user-dash-box span i{
+	font-size: 25px;
+	line-height: 70px;
+}
+.user-dash-box a{
+	margin-top: 30px;
+	text-decoration: none;
+}
+
+
+.import-registry-box{
+	width: 100%;
+	margin: 10px;
+	padding: 40px 20px;
+	border:#ccc solid 1px;
+	display: flex;
+	flex-flow: row;
+	justify-content:space-between;
+}
+.import-registry-box h3{
+	font-size: 18px;
+}
+.import-registry-box h3 span{
+	font-size: 13px;
+	line-height: 18px;
+}
+.import-registry-box .options a{
+	margin: 0 5px;
+}
+
+/**********************************/
+.imported-product{
+	width:40%;
+	height: auto;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding: 2.5%;
+	border:#666 solid 1px;
+	background: #fff;
+	z-index: 999999;
+	display: none;
+}
+.imported-product .product-details h2{
+	font-size: 20px;
+	font-weight: 100;
+}
+.imported-product .product-details .description{
+	margin-top: 15px;
+	font-size: 13px;
+	font-weight: 100;
+}
+.imported-product .product-details .price{
+	margin-top: 15px;
+	font-size: 14px;
+	font-weight: 800;
+	color: #ffa016;
+}
+.imported-product .product-details .retailer{
+	margin-top: 15px;
+	font-size: 11px;
+	font-weight: 200;
+	color:#4DD2FF;
+}
+.imported-product .product-details a{
+	margin: 15px 0 0 0;
+}
+
