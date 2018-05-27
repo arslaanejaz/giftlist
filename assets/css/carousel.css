@@ -349,7 +349,7 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 	border:#666 solid 1px;
 	background: #fff;
 	z-index: 999999;
-	display: none;
+	display: block;
 }
 .imported-product .product-details h2{
 	font-size: 20px;

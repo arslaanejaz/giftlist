@@ -32,4 +32,10 @@ public function __construct(){
 
 	}
 
+    public function single()
+    {
+
+        $this->load->view('single_import/single');
+    }
+
 }
