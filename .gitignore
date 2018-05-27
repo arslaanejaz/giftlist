@@ -15,3 +15,4 @@ error_log
 composer.lock
 /application/config/*
 /dump
+.htaccess
