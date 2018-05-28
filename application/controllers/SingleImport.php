@@ -34,8 +34,10 @@ public function __construct(){
 
     public function single()
     {
-
-        $this->load->view('single_import/single');
+        $data = $_GET['data'];
+        $d = base64_decode($data);
+        $array = json_decode($d, true);
+        $this->load->view('single_import/single', array('data'=>$array));
     }
 
 }

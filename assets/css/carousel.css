@@ -340,7 +340,7 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 
 /**********************************/
 .imported-product{
-	width:40%;
+	width:100%;
 	height: auto;
 	position: fixed;
 	top: 0px;

@@ -67,8 +67,8 @@
       const iframeStyle = [
         {prop: 'right', value: '10px'},
         {prop: 'top', value: '10px'},
-        {prop: 'width', value: '700px'},
-        {prop: 'height', value: '471px'},
+        {prop: 'width', value: '500px'},
+        {prop: 'height', value: '550px'},
         {prop: 'border-style', value: 'none'},
         {prop: 'overflow', value: 'hidden'},
         {prop: 'z-index', value: '99999'},
