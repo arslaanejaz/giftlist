@@ -17,6 +17,9 @@
 
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url('assets/css/carousel.css') ?>" rel="stylesheet">
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
   <div id="fb-root"></div>

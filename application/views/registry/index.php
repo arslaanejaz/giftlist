@@ -52,12 +52,14 @@
               <hr class="featurette-divider">
               <div class="row">
               <div class="col-md-12">
-                <div class="import-registry-box">
-                  <h3>Importing products from Amazon <span>Fetching 40 products</span></h3>
+                <div class="import-registry-box" style="display: none">
+                  <p></p>
+
                   <div class="options">
-                    <a href="<?php echo base_url() ?>"><i class="fa fa-repeat"></i></a>
-                    <a href="<?php echo base_url() ?>"><i class="fa fa-pause"></i></a>
-                    <a href="<?php echo base_url() ?>"><i class="fa fa-play"></i></a>
+                      <img src="<?php echo base_url('assets/images/ajax-loader.gif')?>">
+<!--                    <a href="--><?php //echo base_url() ?><!--"><i class="fa fa-repeat"></i></a>-->
+<!--                    <a href="--><?php //echo base_url() ?><!--"><i class="fa fa-pause"></i></a>-->
+<!--                    <a href="--><?php //echo base_url() ?><!--"><i class="fa fa-play"></i></a>-->
                   </div>
                 </div>
               </div> 
@@ -148,7 +150,6 @@
       <h1 style="margin-right: 6em">Import Registry</h1>
     </div>
     <div class="modal-body">
-    <?= form_open("import") ?>
     <?php if (form_error('registry_id') != null): ?>
                         <div class="alert alert-danger " role="alert">
                             <?= form_error('registry_id'); ?>
@@ -156,18 +157,17 @@
                     <?php endif; ?>
       <div class="form-group">
       <h5>Select Registry</h5>
-    <select  class="form-control" name="registry_id">
-    <?php foreach ($result as $key => $value): ?>  
-          <?php if($this->session->userdata('user_id') == $value->fk_user_id): ?>
-          <option value="<?php echo $value->registry_id ?>"><?php echo $value->description ?></option>
-          <?php endif; endforeach; ?>
+    <select  class="form-control" id="registry_pk_id">
+    <?php foreach ($result as $value){ ?>
+          <option value="<?php echo $value->registry_id ?>"><?php echo $value->description ?> (<?php echo $value->registry_type ?>)</option>
+          <?php } ?>
         </select> 
       <span>You will need to first create registry to import products</span>
       </div>
 
       <div class="form-group">
       <h5>Source</h5>
-    <select  class="form-control" name="source">
+        <select  class="form-control" id="source">
           <option value="amazon">Amazon</option>
         </select> 
       <span>Where your registry already exists</span>
@@ -175,15 +175,58 @@
 
       <div class="form-group">
       <h5>Registry ID</h5>
-    <input type="text" class="form-control" placeholder="i.e 51ULB996O61W" id="registry_id" name="registry_id" /> 
+        <input type="text" class="form-control" placeholder="i.e 51ULB996O61W" id="registry_id" name="registry_id" />
       <span>A valid id</span>
       </div>
 
 
     
-      <button class="btn btn-blue" type="submit" style="">Import</button>
-    </form>
+      <button class="btn btn-blue" id="import_registry" style="">Import</button>
 
     </div>
   </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $("#import_registry").click(function(){
+            console.log('aaa');
+            if($('#registry_id').val()==''){
+                alert('Registry id is required.');
+                return;
+            }
+            if($('#source').val()==''){
+                alert('Source is required.');
+                return;
+            }
+            $("#import_registry").prop('disabled', true);
+            $('.import-registry-box').css('display','block');
+            $('.import-registry-box').children('p').html('Importing products from amazon please wait');
+            $('.import-registry-box').children('.options').show();
+
+
+            $('.close-modal').trigger( "click" );
+
+
+            $.ajax({
+                url: "<?php echo base_url('import/ajax')?>",
+                type: 'post',
+                dataType: "json",
+                data: {
+                    'id':$('#registry_pk_id').val(),
+                    'source':$('#source').val(),
+                    'registry_id':$('#registry_id').val(),
+                },
+                success: function(result){
+                    $("#import_registry").prop('disabled', false);
+                    $('.import-registry-box').children('p').html(result.rec_count+' products imported from amazon');
+                    $('.import-registry-box').children('.options').hide();
+                },
+                error: function(result){
+                    console.log(result)
+                },
+            });
+        });
+    });
+
+</script>

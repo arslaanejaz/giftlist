@@ -16,7 +16,7 @@ class Registry extends CI_Controller{
         if(! $this->session->userdata('user_id')){
             return redirect('login');
         }
-        $data['result'] = $this->Registry_model->get_all();
+        $data['result'] = $this->Registry_model->get_by_user();
         $this->load->view('templates/header');
         $this->load->view('registry/index', $data);
         $this->load->view('templates/footer');

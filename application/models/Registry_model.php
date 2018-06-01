@@ -46,6 +46,15 @@ class Registry_model extends CI_Model {
         return $registry->result();
     }
 
+    public function get_by_user()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_registry');
+        $this->db->where('fk_user_id', $this->session->userdata('user_id'));
+        $registry = $this->db->get();
+        return $registry->result();
+    }
+
 
     public function edit_registry($id)
     {

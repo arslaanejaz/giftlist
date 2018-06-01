@@ -8,6 +8,7 @@ use Browser\Casper;
 
 class Import extends CI_Controller {
 
+    public $productImportCount = 0;
 public function __construct(){
         parent::__construct();
          $this->load->library(array('form_validation'));
@@ -159,6 +160,22 @@ echo 'OK '.$response->getStatus();
         }
     }
 
+    public function ajax(){
+        $id = $this->input->post('id');
+        $registry_id = $this->input->post('registry_id');
+        $data['result'] = $this->Registry_model->get_by_id($id);
+        $this->Registry_model->update_registry($id, array('registry_url'=>$registry_id));
+        $registry_type = $data['result'][0]->registry_type;
+        set_time_limit(-1);
+        $json = shell_exec("casperjs ./assets/scripts/amazon.js https://www.amazon.com $registry_type/registry/$registry_id");
+        $array = json_decode($json, true);
+        $this->process($array, $id);
+
+        $this->scrap_pages($id, $registry_id, $registry_type);
+
+        echo \GuzzleHttp\json_encode(array('rec_count'=>$this->productImportCount));
+    }
+
     private function scrap_pages($id, $registry_id, $registry_type){
 
         $pageResult = $this->Registry_Products_Page_model->get_by_registry($id);
@@ -190,6 +207,7 @@ echo 'OK '.$response->getStatus();
                     $exists = $this->Registry_Products_model->exists($id, $row['title']);
 
                     if($exists===false){
+                        $this->productImportCount++;
                         $this->Registry_Products_model->add($data);
                     }else{
                         $this->Registry_Products_model->update($exists[0]->id, $data);
