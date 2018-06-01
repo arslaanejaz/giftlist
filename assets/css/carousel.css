@@ -202,6 +202,10 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 .product{
 	padding:8px;
 	border:#efefef solid 1px;
+	text-decoration: none;
+}
+.partner{
+	margin:19px;
 }
 .product.active{
 	opacity: 0.5;
@@ -221,33 +225,46 @@ a.navbar-brand, .fa-bars:before{ color: #000 !important; }
 	height: 200px;
 }
 .product h4{
+	width: 90%;
 	padding-top:10px;
 	font-size:16px;
   font-family: 'Montserrat', sans-serif;
 	color:#000;
-	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-decoration: none;
 }
 .product p.price{
 	padding-top:10px;
+	margin: 0;
 	font-size:15px;
 	font-weight:bold;
   font-family: 'Montserrat', sans-serif;
 	color:#ffa016;
-	text-align: center;
+	text-decoration: none;
 }
 .product p.retailer{
 	padding-top:5px;
+	margin: 0;
 	font-size:12px;
   font-family: 'Montserrat', sans-serif;
 	color:#ccc;
-	text-align: center;
+	text-decoration: none;
 }
 .product p.description{
+	width:90%;
 	padding-top:5px;
+	margin: 0;
 	font-size:12px;
   font-family: 'Montserrat', sans-serif;
 	color:#666;
-	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.product a.btn{
+	margin: 10px 0 0 0;
 }
 /* RESPONSIVE CSS
 -------------------------------------------------- */

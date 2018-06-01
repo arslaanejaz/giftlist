@@ -19,11 +19,6 @@
               <div class="text-center mb-4">
                 <p>Select Products to add in your registry Or Send Gift</p>
               </div>
-        
-              <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Product name" required autofocus>
-                <label for="inputEmail">  </label>
-              </div>
             </form>
           </div>
         </div><!-- /.row -->
@@ -49,13 +44,13 @@
 
         <?php foreach ($result as $key => $value): ?>
 
-          <div class="col-lg-3 product">
+          <a href="<?php echo $value->url; ?>" class="col-lg-3 product" target="_blank">
           	<img class="center-block" src="<?php echo base_url().'assets/product_images/'.$value->product_image; ?>" />
             <h4><?php echo $value->product_name; ?></h4>
             <p class="retailer">By <?php echo $value->retailer; ?></p>
             <p class="description"><?php echo $value->product_detail; ?></p>
-            <p class="price">$<?php echo $value->product_price; ?></p>
-          </div>
+            <p class="price">Price: $<?php echo $value->product_price; ?></p>
+          </a>
 
         <?php endforeach ?>
         

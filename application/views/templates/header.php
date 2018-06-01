@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li><a class="p-2 text-dark" href="<?php echo site_url('welcome/find_registry'); ?>">FIND REGISTRY</a></li>
-            <li><a class="p-2 text-dark" href="<?php echo site_url('welcome/shop'); ?>">SHOP GYFTLIST</a></li>
+            <li><a class="p-2 text-dark" href="<?php echo site_url('welcome/shop'); ?>">SHOP GYFTLISTS</a></li>
             <li class="nav-item dropdown">
               <a class="p-2 text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 LEARN MORE

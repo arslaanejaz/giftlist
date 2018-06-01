@@ -25,7 +25,7 @@
                <div class="form-group">
                 <label class="col-sm-2 control-label">Price</label>
                                 <div class="col-sm-10">
-                  <input type="number" class="form-control" value="<?php if(!empty($products)){
+                  <input type="text" class="form-control" value="<?php if(!empty($products)){
                     echo $products->product_price;
                     } ?>" name="price" placeholder="Price" > 
                                 </div>
@@ -68,6 +68,16 @@
                                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="retailer" placeholder="Retailer" value="<?php if(!empty($products)){
                     echo $products->retailer;
+                    } ?>" > 
+                                </div>
+                             </div>
+
+                             <div class="line-dashed"></div>
+               <div class="form-group">
+                <label class="col-sm-2 control-label">URL</label>
+                                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="url" placeholder="http://...." value="<?php if(!empty($products)){
+                    echo $products->url;
                     } ?>" > 
                                 </div>
                              </div>
