@@ -47,6 +47,7 @@ class Product extends CI_Controller{
         'product_detail'=>$this->input->post('product_detail'),
         'product_category'=>$this->input->post('product_category'),
         'retailer'=>$this->input->post('retailer'),
+        'url'=>$this->input->post('url'),
         'product_image'=> $picture
 
 
@@ -55,7 +56,7 @@ class Product extends CI_Controller{
     $result = $this->Product_model->add_product($data);
     if($result)
     {
-        return redirect('admin/product');
+        return redirect('admin/product/manage_product');
     }
 
 }
@@ -107,6 +108,7 @@ public function update_product()
         'product_detail'=>$this->input->post('product_detail'),
         'product_category'=>$this->input->post('product_category'),
         'retailer'=>$this->input->post('retailer'),
+        'url'=>$this->input->post('url'),
         'product_image'=> $picture
 
 
@@ -115,7 +117,7 @@ public function update_product()
     $result = $this->Product_model->update_product($id,$data);
     if($result)
     {
-        return redirect('admin/product');
+        return redirect('admin/product/manage_product');
     }
 }
 

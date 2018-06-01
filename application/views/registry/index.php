@@ -87,12 +87,9 @@
     </div>
     <div class="modal-body">
       <form action="<?php echo base_url('registry/create_registry') ?>" method="post"  enctype="multipart/form-data" >
-      <div class="form-group">
-        <h5>Registry Type:</h5>
-      </div>
 
       <div class="form-group">
-        <div class="cc-selector">
+        <!--<div class="cc-selector">
         <input checked="checked" id="wedding" type="radio" name="registry_type" value="wedding"  />
         <label class="drinkcard-cc wedding" for="wedding"></label>
         <input id="graduation" type="radio" name="registry_type" value="graduation" />
@@ -101,7 +98,15 @@
         <label class="drinkcard-cc baby" for="baby"></label>
         <input id="anniversary" type="radio" name="registry_type" value="anniversary" />
         <label class="drinkcard-cc anniversary" for="anniversary"></label>
-        </div>
+        </div>-->
+        
+      <h5>Registry For</h5>
+      <select name="registry_type" class="form-control">
+        <option value="wedding">Wedding</option>
+        <option value="graduation">Graduation</option>
+        <option value="baby">Baby</option>
+        <option value="anniversary">Anniversary</option>
+      </select>
     </div>
       
 
@@ -118,8 +123,8 @@
       </div>
 
       <div class="form-group">
-    <h5>Registry Message</h5>
-      <textarea id="registry_msg" name="registry_msg" class="form-control"></textarea>
+    <h5>Registry description</h5>
+      <textarea id="registry_msg" name="registry_msg" class="form-control">Search phrase e.g: John and Kate Wedding etc</textarea>
     </div>
 
     <div class="form-group">
