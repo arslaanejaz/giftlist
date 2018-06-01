@@ -224,7 +224,7 @@
                 },
                 success: function(result){
                     $("#import_registry").prop('disabled', false);
-                    $('.import-registry-box').children('p').html(result.rec_count+' products imported from amazon');
+                    $('.import-registry-box').children('p').html(result.rec_count+' products imported and '+result.update_count+' products updated from amazon');
                     $('.import-registry-box').children('.options').hide();
                 },
                 error: function(result){

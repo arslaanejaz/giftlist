@@ -9,6 +9,7 @@ use Browser\Casper;
 class Import extends CI_Controller {
 
     public $productImportCount = 0;
+    public $productUpdateCount = -1;
 public function __construct(){
         parent::__construct();
          $this->load->library(array('form_validation'));
@@ -173,7 +174,7 @@ echo 'OK '.$response->getStatus();
 
         $this->scrap_pages($id, $registry_id, $registry_type);
 
-        echo \GuzzleHttp\json_encode(array('rec_count'=>$this->productImportCount));
+        echo \GuzzleHttp\json_encode(array('rec_count'=>$this->productImportCount, 'update_count'=> $this->productUpdateCount));
     }
 
     private function scrap_pages($id, $registry_id, $registry_type){
@@ -210,6 +211,7 @@ echo 'OK '.$response->getStatus();
                         $this->productImportCount++;
                         $this->Registry_Products_model->add($data);
                     }else{
+                        $this->productUpdateCount++;
                         $this->Registry_Products_model->update($exists[0]->id, $data);
                         $this->Registry_Products_Page_model->reset($id);
                     }
