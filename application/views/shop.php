@@ -45,8 +45,12 @@
         <?php foreach ($result as $key => $value): ?>
 
           <a href="<?php echo $value->url; ?>" class="col-lg-3 product" target="_blank">
-          	<img class="center-block" src="<?php echo base_url().'assets/product_images/'.$value->product_image; ?>" />
-            <h4><?php echo $value->product_name; ?></h4>
+          	<?php if($value->single!=1){?>
+              <img class="center-block" src="<?php echo base_url().'assets/product_images/'.$value->product_image; ?>" />
+            <?php }else{?>
+                <img class="center-block" src="<?php echo $value->product_image; ?>" />
+            <?php }?>
+              <h4><?php echo $value->product_name; ?></h4>
             <p class="retailer">By <?php echo $value->retailer; ?></p>
             <p class="description"><?php echo $value->product_detail; ?></p>
             <p class="price">Price: $<?php echo $value->product_price; ?></p>

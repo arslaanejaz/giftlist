@@ -287,7 +287,7 @@
     },
 
     buildUrl: function() {
-      return this.appHost + '/SingleImport/single?url=' + encodeURIComponent(window.location.href) + '&data=' + this.encode(JSON.stringify(this.data));
+      return this.appHost + 'SingleImport/single?url=' + encodeURIComponent(window.location.href) + '&data=' + this.encode(JSON.stringify(this.data));
     },
 
     awaitPostMessage: function() {

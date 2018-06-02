@@ -195,7 +195,6 @@
 <script>
     $(document).ready(function(){
         $("#import_registry").click(function(){
-            console.log('aaa');
             if($('#registry_id').val()==''){
                 alert('Registry id is required.');
                 return;

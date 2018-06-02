@@ -50,8 +50,9 @@
             <h2><?php echo $data['name']?></h2>
             <p class="description"><?php echo isset($data['description'])?$data['description']:'' ?></p>
             <p class="price">$ <?php echo isset($data['price'])?$data['price']:'' ?></p>
-            <p class="retailer"><?php echo isset($data['name'])?$data['name']:'' ?></p>
-            <a href="#" class="btn btn-yellow">Add to My Gyftlist</a>
+            <p class="retailer"><?php echo isset($data['host'])?$data['host']:'' ?></p>
+            <a href="#" class="btn btn-yellow" id="single_import_registry">Add to My Gyftlist</a>
+<span id="message"></span>
         </div>
     </div>
 </div>
@@ -66,7 +67,48 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script>
+    $(document).ready(function(){
+        $("#single_import_registry").click(function(){
+// console.log(decodeURIComponent(window.location.href));
+//             $("#single_import_registry").prop('disabled', true);
+            var query_string = window.location.href.split('?')[1];
 
+            var productUrl = (query_string.split('&')[0]);
+            productUrl = productUrl.replace('url=', '');
+
+
+
+            var product_detail = '<?php echo isset($data['description'])?$data['description']:'' ?>'
+            var retailer = '<?php echo isset($data['host'])?$data['host']:'' ?>'
+            var product_price = '<?php echo isset($data['price'])?$data['price']:'' ?>'
+            var product_name = '<?php echo isset($data['name'])?$data['name']:'' ?>'
+            var product_image = $('.carousel-inner').find('.active').find('img').attr('src');
+
+            $('#message').html("saving data.");
+            $.ajax({
+                url: "<?php echo base_url('SingleImport/ajax')?>",
+                type: 'post',
+                dataType: "json",
+                data: {
+                    'product_detail':product_detail,
+                    'product_price':product_price,
+                    'retailer':retailer,
+                    'product_name':product_name,
+                    'product_image':product_image,
+                    'url':decodeURIComponent(productUrl)
+                },
+                success: function(result){
+                    $('#message').html("Data Saved.");
+                },
+                error: function(result){
+                    $('#message').html("Some Error Occured!");
+                },
+            });
+        });
+    });
+
+</script>
 
 </body>
 </html>
